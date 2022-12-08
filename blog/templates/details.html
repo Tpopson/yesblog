@@ -1,0 +1,61 @@
+{% extends 'base.html' %} 
+
+{% block title %} | {{detail.title}} {% endblock title %} {% block content %}
+
+<!-- content  -->
+{% include 'welcome.html' %}
+<div class="container-fluid mb-5">
+    <div class="row">
+        <div class="col-sm-12 col-md-2 col-lg-1"></div>
+        <div class="col-sm-12 col-md-8 col-lg-9">
+            <a href="{% url 'allpost' %}" style="text-decoration: none;color:salmon">Back</a> 
+            <div class="row  p-4 powertblog">
+                <div class="col-sm-12 col-mm-12 col-lg-4">
+                    <div class="myimg">
+                        <img src="{{ detail.image.url }}" style="width:15rem;height:15rem" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-mm-12 col-lg-8">
+                    <div class="mytitile mb-3">
+                        <h2>{{ detail.title|title}}</h2>
+                    </div>
+                    <div class="mydate mb-2">
+                        <span>Published: {{ detail.date_created }}</span>
+                        <span>By: {{ detail.author|title}}</span>
+                    </div>
+                    <div class="details mb-2">
+                        <p>
+                            {{ detail.content|safe|linebreaks }}
+                        </p>
+                    </div>
+                    <div class="readmore mb-2">
+                        <hr class="rule">
+                        <h3>Add Comment</h3>
+                        <form  action="{% url 'detail' detail.slug %}" method="POST"> 
+                        {% csrf_token %}
+                            {{ comment_form.as_p }}
+                            <input type="hidden" value="{{detail.id}}" name="comdetail">
+                            <button type="submit" class="btn blogbtn">Comment</button>
+                        </form>
+                    </div>
+                    {% with comments.count as total_comments %}
+                    <h3 class="mt-5 comla">
+                        {{ total_comments }} comment{{ total_comments|pluralize }}
+                    </h3>
+                    {% endwith %}
+                    {% if not detail.comments.all %} 
+                        No comments yet
+                    {% else %}
+                        {% for comment in detail.get_comments %} 
+                            {% include 'comment.html' with comment=comment %} 
+                        {% endfor %} 
+                    {% endif %}
+                </div>
+            </div>
+            <!------>
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2"></div>
+    </div>
+</div>
+<!-- content done -->
+{% endblock content %}

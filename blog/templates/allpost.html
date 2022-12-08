@@ -1,0 +1,65 @@
+{% extends 'base.html' %} 
+
+
+{% block title %}All Post {% endblock title %}
+
+{% block content %}
+
+<!-- content  -->
+{% if request.user.is_authenticated %}
+    <div class="container bhome">
+        <h1>All Blog Post</h1>
+    </div>
+
+    <div class="container-fluid mb-5">
+        <div class="row justify-content-center gy-5">
+            <div class="col-10 col-md-7">
+                {% for item in post %}
+                    <div class="row powert  justify-content-center mb-5 mt-3">
+                        <div class="col-sm-12 col-mm-12 col-lg-4">
+                            <div class="myimg">
+                                <img src="{{ item.image.url}}" style="width:15rem;height:9rem" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-10 col-md-12 col-lg-8">
+                            <div class="mytitile mb-3 pt-4">
+                                <h2>{{item.title}}</h2>
+                            </div>
+                            <div class="mydate mb-2">
+                                <span>Published {{item.date_created}}</span>
+                                <span>by {{item.author}}</span>
+                            </div>
+                            <div class="details mb-2">
+                                <p>
+                                    {{item.content|safe|striptags|truncatechars:50}}
+                                </p>
+                            </div>
+                            <div class="readmore mb-2 d-flex mb-5">
+                                <button class="btn mr-2 mybtn"><a href="{% url 'detail' item.slug %}">Details</a></button>
+                                <a href="{% url 'editpost' item.id %}" class="btn mr-2 mybtn2">Edit</a>
+                                <form action="{% url 'deleteapost'  %}" method="POST">
+                                {% csrf_token %}
+                                    <input type="hidden" name="deletepost" value="{{item.id}}">
+                                    <button class="btn mybtn2">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <!------>
+                {% block paginate %} {% include 'paginate.html' %} {% endblock paginate %}
+            </div>
+            <div class="col-10 col-md-4">
+                {% include 'createpost.html' %}
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="restrict">
+        <h3>Restricted Admin only</h3>
+    </div>
+{% endif %}
+
+
+<!-- content done -->
+{% endblock content %}

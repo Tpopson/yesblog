@@ -1,0 +1,15 @@
+{% if post.has_other_pages %}
+<nav aria-label="Page navigation container">
+    <ul class="pagination justify-content-center">
+        {% if post.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ post.previous_page_number }}">&laquo;</a></li>
+        {% endif %} {% for item in post.paginator.page_range %} {% if post.number == item %}
+        <li class="page-item"><a class="page-link" href="#">{{item}}</a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{item}}">{{item}}</a></li>
+        {% endif %} {% endfor %} {% if post.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ post.next_page_number }}">&raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}

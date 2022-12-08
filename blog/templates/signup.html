@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}SignUp {% endblock title %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="row justify-content-center signbox">
+        <div class="col-1 col-lg-2"></div>
+        <div class="col-8 col-lg-6">    
+            <div class="signin">
+                <form action="{% url 'signup' %}" method="POST">
+                {% csrf_token %}
+                    <div class="form-group text-center text-white">
+                      <h5 for="exampleInputText1">Create an Account</h5>
+                      <hr class="rule">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputText1">Username</label>
+                      <input type="text" name="username" placeholder="Enter Username" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputText1">First Name</label>
+                      <input type="text" name="first_name" placeholder="Enter First Name" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputText1">Last Name</label>
+                      <input type="text" name="last_name" placeholder="Enter Last Name" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" name="password1"  placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1"> Repeat Password</label>
+                      <input type="password" name="password2"  placeholder="Enter Password Again" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn py-2 px-4 btn-sm">Create</button>
+                    <small id="emailHelp" class="form-text text-white pt-2">Already have an account? <a class="text-white" href="{% url 'signin' %}">SingIn</a></small>
+                </form>
+            </div>
+        </div>
+        <div class="col-1 col-lg-2"></div>
+    </div>
+</div>
+{% endblock content %}
+

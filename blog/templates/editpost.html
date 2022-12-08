@@ -1,0 +1,48 @@
+{% extends 'base.html' %} 
+
+{% block title %} | {{postedit.title}} {% endblock title %} {% block content %}
+
+<!-- content  -->
+{% include 'welcome.html' %}
+<div class="container-fluid mb-5">
+    <div class="row">
+        <div class="col-sm-12 col-md-2 col-lg-1"></div>
+        <div class="col-sm-12 col-md-8 col-lg-9">
+            <a href="{% url 'allpost' %}" style="text-decoration: none;color:salmon">Back</a> 
+            <div class="row  p-4 powertblog">
+                <div class="col-sm-12 col-mm-12 col-lg-4">
+                    <div class="myimg">
+                        <img src="{{ postedit.image.url }}" style="width:15rem;height:15rem" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-mm-12 col-lg-8">
+                    <div class="mytitile mb-3 pt-2">
+                        <h2>{{ postedit.title|title}}</h2>
+                    </div>
+                    <div class="mydate mb-2">
+                        <span>Published: {{ postedit.date_created }}</span>
+                        <span>By: {{ postedit.author|title}}</span>
+                    </div>
+                    <div class="details mb-2">
+                        <p>
+                            {{ postedit.content|safe|linebreaks }}
+                        </p>
+                    </div>
+                    <div class="readmore mb-2">
+                        <hr class="rule">
+                        <h3>Edit Post</h3>
+                        <form  action="{% url 'editpost' postedit.id %}" method="POST"> 
+                        {% csrf_token %} 
+                            {{ form.as_p }}
+                            <button type="submit" class="btn blogbtn">Edit Post</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!------>
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2"></div>
+    </div>
+</div>
+<!-- content done -->
+{% endblock content %}

@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+.navbar{
+    background: salmon;
+}
+.navbar-brand{
+    color: #fff;
+}
+.navbar-brand:hover{
+    color: #fff;
+}
+#navbarSupportedContent a{
+    color: #fff;
+}
+.navbar form input[type="search"]{
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: salmon;
+}
+.navbar form input[type="search"]:focus{
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: salmon;
+}
+.navbar form input[type="search"]::placeholder{
+    color: salmon;
+}
+.navbar form button{
+    background: #fff;
+    color: salmon;
+    text-transform: capitalize;
+    box-shadow: none;
+    outline: none;
+}
+.navbar form button:focus{
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: salmon;
+}
+.navbar form button:hover{
+    color: salmon;
+}
+ /* index  */
+ .mymsg{
+    background: salmon;
+    color: #fff;
+ }
+.bhome {
+    padding: 5rem 0 3rem;
+    text-align: center;
+    color: salmon;
+}
+.powert {
+    background: salmon;
+    margin: 4% 8%;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, .05);
+    border-radius: 10px;
+}
+.myimg img {
+    width: 80%;
+    height: 50%;
+    transform: translateY(-30px);
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 8p 3px rgba(0, 0, 0, .3);
+}
+
+.mydate span {
+    color: #fff;
+}
+
+.mytitile h2 {
+    font-style: normal;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.details p {
+    font-style: normal;
+    line-height: 2;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.mybtn2 {
+    background: #fff;
+    text-transform: capitalize;
+    color: salmon;
+    padding: .5rem 1rem;
+}
+.mybtn2:hover {
+    color: salmon;
+}
+.mybtn {
+    background: #fff;
+    text-transform: capitalize;
+}
+.mybtn a{
+    color: salmon;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.newpost h4{
+    text-align: center;
+    color: salmon;
+}
+.newpost form{
+    background: salmon;
+    padding: 2rem;
+}
+.restrict{
+    height: 26rem;
+    color: salmon;
+    padding: 5rem;
+}
+/* index ends  */
+/* pagination  */
+.pagination > li > a{
+    color: salmon !important;
+}
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover{
+    background: white;
+    color:  salmon  !important;
+    border: salmon !important;
+    box-shadow: 1px 1px 1px 2px salmon !important;
+}
+.pagination > .active > a{
+    background: salmon !important;
+    color: white !important;
+    border: solid 1px salmon !important;
+}
+.pagination > .active > a:hover{
+    background: salmon !important;
+    border: solid 1px salmon;
+    color: white !important;
+}
+/* pagination done */
+/* detail  */
+.powertblog {
+    background: salmon;
+    margin: 8%;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, .05);
+    border-radius: 10px;
+    color: #fff;
+}
+.powertblog .myimg img {
+    width: 100%;
+    height: 100%;
+    transform: translateY(-30px);
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 8p 3px rgba(0, 0, 0, .3);
+}
+.rule{
+    background: #fff;
+}
+.form-control{
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: salmon;
+    resize: none;
+}
+.form-control:focus{
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: salmon;
+}
+.form-control::placeholder{
+    color: salmon;
+}
+.blogbtn,
+.btn-sm{
+    background: #fff;
+    color: salmon;
+    text-transform: capitalize;
+    box-shadow: none;
+    outline: none;
+}
+.blogbtn:focus,
+.btn-sm:focus{
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: salmon;
+}
+.blogbtn:hover,
+.btn-sm:hover{
+    color: salmon;
+}
+.comla{
+    text-transform: capitalize;
+}
+
+.small{
+    color: #fff;
+    text-transform: capitalize;
+}
+.rounded p{
+    text-transform: inherit;
+}
+/* detail ends  */
+
+/* signin  */
+.signbox{
+    padding: 5rem 0;
+}
+
+.signin form{
+    background: salmon;
+    padding: 3rem;
+}
+.form-group label{
+    color: #fff;
+}
+.form-group input{
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: salmon;
+}
+.form-group input:focus{
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: salmon;
+}
+.form-group input::placeholder{
+    color: salmon;
+}
+/* signin ends */
+.myfooter {
+    height: 15vh;
+    background: salmon;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0;
+    justify-content: center;
+    text-align: center;
+    font-weight: bolder;
+    color: #fff;
+    font-size: 20px;
+}
+
+
